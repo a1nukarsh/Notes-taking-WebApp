@@ -2,6 +2,7 @@ console.log('This is notes taking app')
 
 // If a user adds a note, then add it to local storage
 
+showNotes()
 // adding an event listener
 let addBtn = document.getElementById('addBtn')
 addBtn.addEventListener('click', function(e){
@@ -21,6 +22,7 @@ addBtn.addEventListener('click', function(e){
     showNotes()
 })
 
+// function to show elements from local storage
 function showNotes(){
     let notes = localStorage.getItem("notes")
     if(notes == null){
@@ -43,7 +45,10 @@ function showNotes(){
     })
 
     let notesElm = document.getElementById('notes')
-    if (notes.length != 0){
+    if (notesObj.length != 0){
 notesElm.innerHTML = html
+    }
+    else{
+        notesElm.innerHTML = `Nothing to show! Add a note`
     }
 }
